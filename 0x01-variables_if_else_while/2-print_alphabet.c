@@ -1,45 +1,21 @@
 #include <stdio.h>
 
-
-
 /**
+ * main - Entry Point
  *
- *  * main - Entry Point
+ * Description: print alphabets in lowercase with putschar func
  *
- *   *
+ * Return: Always 0(Success)
  *
- *    * Description: prints of alphabets in lowercase with putschar function
- *
- *     *
- *
- *      * Return: Always 0(Success)
- *
- *       */
-
-
-
-
+ */
 
 int main(void)
-
 {
+	char alpha[] = "abcdefghijklmnopqrstuvwxyz";
+	int i;
 
-		char alpha[] = "abcdefghijklmnopqrstuvwxyz";
-
-
-
-			int i;
-
-
-
-				for (i = 0; i < 26; i++)
-
-							putchar(alpha[i]);
-
-					putchar('\n');
-
-						return (0);
-
+	for (i = 0; i < 26; i++)
+		putchar(alpha[i]);
+	putchar('\n');
+	return (0);
 }
-
-
