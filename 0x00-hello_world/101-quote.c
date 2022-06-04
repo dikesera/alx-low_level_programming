@@ -2,8 +2,10 @@
 #include <unistd.h>
 
 /*
- *
  * main - Entry point
+ *
+ * Description: using write print what was given.
+ *
  *Return: Always 1 (Success)
  *
  */
