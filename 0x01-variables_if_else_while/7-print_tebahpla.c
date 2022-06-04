@@ -1,41 +1,20 @@
 #include <stdio.h>
 
-
-
 /**
+ * main - Entry Point
  *
- *  * main - Entry Point
+ * Description: print all alpha in reverse order
  *
- *   *
+ * Return: Always 0(Success)
  *
- *    * Description: print all alpha in reverse order
- *
- *     *
- *
- *      * Return: Always 0(Success)
- *
- *       */
-
-
+ */
 
 int main(void)
-
 {
+	char l;
 
-		/* char alph[27] = "abcdefghijklmnopqrstuvwxyz";*/
-
-
-
-		char l;
-
-
-
-			for (l = 'z'; l >= 'a'; l--)
-
-						putchar(l);
-
-				putchar('\n');
-
-					return (0);
-
+	for (l = 'z'; l >= 'a'; l--)
+		putchar(l);
+	putchar('\n');
+	return (0);
 }
