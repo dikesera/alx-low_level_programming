@@ -11,14 +11,9 @@
 
 int _isupper(int c)
 {
-	char l;
 
-	for (l = 'A'; l <= 'Z'; l++)
-
-	{
-		if (c == l)
+		if (c > 64 && c < 91)
 			return (1);
-
-	}
-	return (0);
+	
+		return (0);
 }
