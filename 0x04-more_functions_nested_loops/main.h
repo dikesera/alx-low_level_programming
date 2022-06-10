@@ -1,4 +1,4 @@
-int _putchar(char c);
+int _putchar(int _char);
 
 int _isupper(int c);
 
