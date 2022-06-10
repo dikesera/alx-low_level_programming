@@ -11,21 +11,28 @@
 
  void print_triangle(int size)
  {
- 	 int i, j,  s;
+	 int c, i, j;
 
-	 if (size > 0)
+	 c = 0;
+	 i = size - 1;
+	 while (c < size)
 	 {
-		 for (i = 1; i <= size; i++)
+		 i = size - 1 - c;
+		 j = c + 1;
+		 while (i > 0)
 		 {
-			 for (s = size - i; s > 0; s--)
-				 _putchar(' ');
-		 	 for (j = 0; j < i; j++)
-				 _putchar('#');
-			 if (i == size)
-			 	 break;
-			 _putchar('\n');
+			 _putchar(' ');
+			 i--;
 	 	 }
-																															}
+		 while (j > 0)
+		 {
+			 _putchar('#');
+			 j--;
+	 	 }
+		 _putchar('\n');
+		 c++;
+	 }
 
-	 _putchar('\n');
+	 if (size <= 0)
+		 _putchar('\n');
  }
