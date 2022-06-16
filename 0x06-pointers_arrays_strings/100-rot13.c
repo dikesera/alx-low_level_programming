@@ -1,27 +1,41 @@
 #include "main.h"
 
 /**
- * rot13 -  a function that encodes a string using rot13.
- * @s: An input string to encode using rot13
- * Return: An encode string
+ * cap_string - captialized every char at 0 index and char after a searator
+ *
+ * @s: char pointer
+ * Return: char pointer
  */
-char *rot13(char *s)
+
+
+char *cap_string(char *s)
 {
+
 	int i = 0;
 
 	while (s[i] != '\0')
 	{
-		while ((s[i] >= 'a' && s[i] <= 'z') ||
-				(s[i] >= 'A' && s[i] <= 'Z'))
-		{
-			if ((s[i] >= 'a' && s[i] <= 'm') ||
-					(s[i] >= 'A' && s[i] <= 'M'))
-				s[i] += 13;
-			else
-				s[i] -= 13;
+		while (!(s[i] >= 'a' && s[i] <= 'z'))
 			i++;
-		}
+		if (s[i - 1] == ',' ||
+		    s[i - 1] == ';' ||
+		    s[i - 1] == '.' ||
+		    s[i - 1] == '!' ||
+		    s[i - 1] == '?' ||
+		    s[i - 1] == ' ' ||
+		    s[i - 1] == '"' ||
+		    s[i - 1] == '\n' ||
+		    s[i - 1] == '\t' ||
+		    s[i - 1] == '(' ||
+		    s[i - 1] == '}' ||
+		    s[i - 1] == '{' ||
+		    s[i - 1] == ')' ||
+		    i == 0)
+			s[i] -= 32;
+
 		i++;
 	}
+
+
 	return (s);
 }
