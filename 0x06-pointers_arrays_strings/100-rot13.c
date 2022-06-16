@@ -1,41 +1,31 @@
 #include "main.h"
 
+
 /**
- * cap_string - captialized every char at 0 index and char after a searator
+ * rot13 - rotate every character 13 times
  *
  * @s: char pointer
+ *
  * Return: char pointer
  */
 
-
-char *cap_string(char *s)
+char *rot13(char *s)
 {
+	int i = 0, j;
 
-	int i = 0;
-
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		while (!(s[i] >= 'a' && s[i] <= 'z'))
-			i++;
-		if (s[i - 1] == ',' ||
-		    s[i - 1] == ';' ||
-		    s[i - 1] == '.' ||
-		    s[i - 1] == '!' ||
-		    s[i - 1] == '?' ||
-		    s[i - 1] == ' ' ||
-		    s[i - 1] == '"' ||
-		    s[i - 1] == '\n' ||
-		    s[i - 1] == '\t' ||
-		    s[i - 1] == '(' ||
-		    s[i - 1] == '}' ||
-		    s[i - 1] == '{' ||
-		    s[i - 1] == ')' ||
-		    i == 0)
-			s[i] -= 32;
+		for (j = 0; j < 26; j++)
+		{
+
+			if (s[i] + 13 >= 'a' &&
+			    s[i] + 13 <= 'z')
+				s[i] += 32;
+			s[i] -= 13;
+		}
 
 		i++;
 	}
-
 
 	return (s);
 }
