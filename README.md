@@ -1,1 +1,1 @@
-tryreadme
+"more on pointers"
