@@ -1,55 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 
 /**
- * main - prints the product of two positive number
- *
- * @argc: int
- * @argv: char pointer
- *
- * Return: int
+ * main - Check the code
+ * @argc: number of arguments
+ * @argv: arguments
+ * Return: Nothing
  */
-
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	unsigned long j = 0, len, f = 0, k = 2, i = 1;
-	char *chd = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", cmd[4024];
+	int num1, num2, result;
 
 	if (argc != 3)
 	{
-		puts("Error");
+		printf("Error\n");
 		exit(98);
 	}
-	while (i <= 1)
+	else
 	{
-		len = strlen(argv[i]);
-		for (; j < len; j++)
-		{
-			if (strchr(chd, argv[i][j]) != NULL)
-			{
-				puts("Error");
-				exit(98);
-			}
-		}
-		i++;
+		num1 = atoi(argv[1]);
+		num2 = atoi(argv[2]);
+		result = num1 * num2;
+		printf("%d\n", result);
+		return (0);
 	}
-	while (k <= 2)
-	{
-		len = strlen(argv[k]);
-		for (; f < len; f++)
-		{
-			if (strchr(chd, argv[k][f]) == NULL)
-				continue;
-
-			puts("Error");
-			exit(98);
-		}
-		k++;
-	}
-
-	snprintf(cmd, sizeof(cmd), "echo \"%s * %s\" | bc", argv[1], argv[2]);
-	system(cmd);
-	return (0);
 }
