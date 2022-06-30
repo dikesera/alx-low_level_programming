@@ -1,27 +1,57 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 /**
- * main - Check the code
- * @argc: number of arguments
- * @argv: arguments
- * Return: Nothing
+ * main - prints the product of two positive number
+ *
+ * @argc: int
+ * @argv: char pointer
+ *
+ * Return: int
  */
-int main(int argc, char **argv)
+
+int main(int argc, char *argv[])
 {
-	int num1, num2, result;
+	unsigned long j = 0, len, f = 0, k = 2, i = 1, prod = 1, n;
+	char *chd = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	if (argc != 3)
 	{
-		printf("Error\n");
+		puts("Error");
 		exit(98);
 	}
-	else
+	while (i <= 1)
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		result = num1 * num2;
-		printf("%d\n", result);
-		return (0);
+		len = strlen(argv[i]);
+		for (; j < len; j++)
+		{
+			if (strchr(chd, argv[i][j]) != NULL)
+			{
+				puts("Error");
+				exit(98);
+			}
+		}
+		n = strtol(argv[i], NULL, 10);
+		prod *= n;
+		i++;
 	}
+	while (k <= 2)
+	{
+		len = strlen(argv[k]);
+		for (; f < len; f++)
+		{
+			if (strchr(chd, argv[k][f]) == NULL)
+				continue;
+
+			puts("Error");
+			exit(98);
+		}
+		n = strtol(argv[k], NULL, 10);
+		prod *= n;
+		k++;
+	}
+	printf("%lu\n", prod);
+	return (0);
 }
