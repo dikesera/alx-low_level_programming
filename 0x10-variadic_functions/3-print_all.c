@@ -1,54 +1,53 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
-#include <string.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 /**
- * print_all - prints anything
- * @format: format string
+ * print_all - A function prints anyting.
+ * @format: A list of type of arguments passed to the function.
  * Return: Nothing
  */
-
 void print_all(const char * const format, ...)
 {
-	char *token = "cifs";
-	va_list args;
-	int i = 0, len;
+	va_list ap;
+	char *temp;
+	int i = 0;
 
-	if (format == NULL)
+	va_start(ap, format);
+	while (format == NULL)
+	{
+		printf("\n");
 		return;
-	len = strlen(format) - 1;
-	va_start(args, format);
-
+	}
 	while (format[i])
 	{
-		if (strchr(token, format[i]) == NULL)
-		{
-			i++;
-			continue;
-		}
-
 		switch (format[i])
 		{
 			case 'c':
-				printf("%c", va_arg(args, int));
+				printf("%c", (char) va_arg(ap, int));
 				break;
 			case 'i':
-				printf("%d", va_arg(args, int));
-				break;
-			case 's':
-				printf("%s", va_arg(args, char *));
+				printf("%d", va_arg(ap, int));
 				break;
 			case 'f':
-				printf("%f", va_arg(args, double));
+				printf("%f", (float) va_arg(ap, double));
+				break;
+			case 's':
+				temp = va_arg(ap, char*);
+				if (temp != NULL)
+				{
+					printf("%s", temp);
+					break;
+				}
+				printf("(nil)");
 				break;
 		}
-
-		if (i != len)
+		if ((format[i] == 'c' || format[i] == 'i' || format[i] == 'f' ||
+					format[i] == 's') && format[(i + 1)] != '\0')
 			printf(", ");
 		i++;
 	}
-
-	va_end(args);
+	va_end(ap);
 	printf("\n");
 }
